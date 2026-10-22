@@ -33,6 +33,21 @@ Notes on the data:
 - `*word*` in a title shows in italics.
 - `kind` controls the filter buttons: `paper`, `meal`, `social`, `business`, `ceremony`, `training`.
 
+## Showing it on sricf.org (Avada)
+
+The page goes inside a normal sricf.org page, with the site's own header, menu and footer around it.
+It keeps updating on its own, because it always shows the live GitHub page.
+
+1. WordPress admin → **Pages → Add New**. Title it e.g. *2026 Convocation Schedule*.
+2. Open it in **Avada Builder**. Add a **Container** (1 column), then add the **Code Block** element.
+3. Paste everything from `avada-embed-code.html` into the Code Block. Save the element.
+4. Page Options (below the builder) → **Page Title Bar** → Hide, if you don't want a second title.
+5. **Publish**, then open the page in a private/incognito window to check it.
+6. Add the page to the site menu (**Appearance → Menus**) or link it from the Convocation page.
+
+The embedded copy hides its own logo, since the site header already shows it, and sizes
+itself to fit, so there is no inner scrollbar.
+
 ## Optional: a sricf.org address (e.g. schedule.sricf.org)
 
 1. Where sricf.org's DNS is managed (the domain registrar or web host), add a record:
