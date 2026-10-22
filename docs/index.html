@@ -97,6 +97,10 @@
 .hc-foot .hc-blackletter { font-size: 1.15rem; color: var(--hc-ink); }
 .hc-brand { display: inline-flex; align-items: center; gap: 10px; }
 .hc-seal { width: 34px; height: 48px; object-fit: cover; object-position: left center; flex: none; }
+/* Shown inside a page on sricf.org, which already has the logo in its header */
+.hc-embedded { padding-bottom: 8px; }
+.hc-embedded .hc-masthead { display: none; }
+.hc-embedded .hc-hero { padding-top: 0; }
 .hc-visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
 /* Narrow screens: each row becomes a card */
@@ -280,6 +284,20 @@
   $('.hc-search').addEventListener('input', (e) => { state.q = e.target.value.trim().toLowerCase(); draw(); });
 
   draw();
+
+  // When sricf.org shows this page inside its own page, tell it how tall the
+  // schedule is so it can size the frame with no inner scrollbar.
+  if (window.self !== window.top) {
+    root.classList.add('hc-embedded');
+    let last = 0;
+    const report = () => {
+      const height = Math.ceil(root.getBoundingClientRect().height);
+      if (height !== last) { last = height; window.parent.postMessage({ type: 'sricf-schedule-height', height }, '*'); }
+    };
+    new ResizeObserver(report).observe(root);
+    window.addEventListener('load', report);
+    report();
+  }
 })();
 </script>
 
