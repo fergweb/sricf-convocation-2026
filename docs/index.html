@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2026 Convocation Schedule · High Council SRICF</title>
+<meta name="description" content="Tentative schedule for the High Council Societas Rosicruciana in Civitatibus Foederatis 2026 Convocation.">
+<style>body { margin: 0; background: #ffffff; }</style>
+</head>
+<body>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap">
+<style>
+.hc, .hc * { box-sizing: border-box; }
+.hc {
+  --hc-red: #bf1e2e;
+  --hc-ink: #a01a27;
+  --hc-fg: #212326;
+  --hc-muted: #555a61;
+  --hc-bg: #ffffff;
+  --hc-panel: #ffffff;
+  --hc-line: #8a8d92;
+  --hc-border: #dcdde0;
+  --hc-soft: #fbf1f2;
+  --hc-gold: #c9a24a;
+  --hc-radius: 8px;
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 0 16px 24px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.45;
+  color: var(--hc-fg);
+  background: var(--hc-bg);
+  container-type: inline-size;
+  text-align: left;
+}
+.hc-blackletter { font-family: "UnifrakturMaguntia", "Old English Text MT", "Cloister Black", "Engravers Old English BT", Georgia, "Times New Roman", serif; font-weight: 400; }
+
+/* Letterhead */
+.hc-masthead { display: flex; justify-content: center; padding: 10px 0 0; }
+.hc-logo { display: block; width: min(100%, 520px); height: auto; }
+
+/* Title block, laid out as on the PDF */
+.hc-hero { text-align: center; padding: 8px 0 0; }
+.hc-title { margin: 0; padding: 0; font-size: clamp(1.5rem, 4.4cqi, 2.3rem); line-height: 1.15; color: var(--hc-ink); text-wrap: balance; border: 0; }
+.hc-edition { margin: 2px 0 0; font-size: 1.15rem; font-weight: 700; color: var(--hc-fg); }
+.hc-status { font-size: .8rem; font-weight: 700; color: var(--hc-muted); margin-left: 8px; }
+.hc-status::before { content: "· "; }
+
+/* Notices */
+.hc-notices { margin-top: 14px; background: var(--hc-soft); border: 1px solid #ecc5c9; border-left: 4px solid var(--hc-red); border-radius: var(--hc-radius); padding: 10px 14px; }
+.hc-notices ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 6px; }
+.hc-notices li { margin: 0; line-height: 1.45; }
+.hc-notices li b { color: var(--hc-ink); margin-right: 6px; }
+
+/* Toolbar */
+.hc-bar { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 8px; padding: 10px 0; border-bottom: 1px solid var(--hc-border); }
+.hc-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.hc-chip {
+  font: inherit; font-size: .82rem; line-height: 1.2; cursor: pointer; padding: 6px 12px; margin: 0; border-radius: 999px;
+  border: 1px solid var(--hc-border); background: var(--hc-panel); color: var(--hc-fg); text-transform: none; letter-spacing: 0; box-shadow: none;
+}
+.hc-chip:hover { border-color: var(--hc-red); }
+.hc-chip[aria-pressed="true"] { background: var(--hc-red); border-color: var(--hc-red); color: #fff; }
+.hc-chip:focus-visible, .hc-search:focus-visible, .hc-jump a:focus-visible { outline: 2px solid var(--hc-gold); outline-offset: 2px; }
+.hc-search {
+  flex: 1 1 12rem; min-width: 0; margin: 0; font: inherit; font-size: .95rem; padding: 7px 12px; height: auto;
+  border: 1px solid var(--hc-border); border-radius: var(--hc-radius); background: var(--hc-panel); color: var(--hc-fg);
+}
+.hc-jump { display: flex; gap: 12px; font-size: .85rem; }
+.hc-jump a { color: var(--hc-ink); text-decoration: none; font-weight: 600; }
+.hc-jump a:hover { text-decoration: underline; }
+
+/* Day sections and table */
+.hc-day { margin-top: 28px; scroll-margin-top: 90px; }
+.hc-day h2 { margin: 0 0 8px; padding: 0; font-family: inherit; font-size: 1.2rem; line-height: 1.3; font-weight: 700; color: var(--hc-ink); text-transform: none; letter-spacing: 0; }
+.hc-table { width: 100%; margin: 0; border-collapse: collapse; border-spacing: 0; font-size: .95rem; background: var(--hc-panel); table-layout: auto; }
+.hc-table th { background: var(--hc-red); color: #fff; text-align: left; font-weight: 600; letter-spacing: .03em; padding: 10px; border: 1px solid var(--hc-line); text-transform: uppercase; font-size: .85rem; }
+.hc-table td { border: 1px solid var(--hc-line); padding: 10px; vertical-align: top; text-align: left; background: transparent; }
+.hc-table tbody tr:hover td { background: var(--hc-soft); }
+.hc-c-time { width: 9.5rem; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.hc-c-room { width: 10.5rem; color: var(--hc-muted); font-size: .92em; }
+.hc-c-floor { width: 3.25rem; text-align: center !important; font-variant-numeric: tabular-nums; color: var(--hc-muted); font-size: .92em; }
+.hc-t { font-weight: 600; line-height: 1.35; }
+.hc-t + .hc-t { margin-top: 2px; }
+.hc-paper .hc-t { color: var(--hc-ink); }
+.hc-sub { margin-top: 2px; font-size: .9em; color: var(--hc-muted); line-height: 1.4; }
+.hc-who { margin-top: 8px; font-size: .9em; color: var(--hc-muted); line-height: 1.45; }
+.hc-list { margin: 6px 0 0; padding-left: 1.25rem; font-size: .9em; color: var(--hc-muted); line-height: 1.45; }
+.hc-list li { margin: 0; }
+.hc-pill { display: inline-block; margin-top: 6px; font-size: .8rem; color: var(--hc-ink); border: 1px solid #e3a9af; border-radius: 999px; padding: 1px 9px; }
+.hc-tag { display: inline-block; margin-left: 6px; vertical-align: 2px; font-size: 10px; letter-spacing: .08em; text-transform: uppercase; color: var(--hc-gold); font-weight: 700; }
+.hc-line { display: block; }
+.hc-empty { margin: 28px 0; text-align: center; color: var(--hc-muted); }
+.hc-foot { margin: 28px 0 0; padding-top: 12px; border-top: 1px solid var(--hc-border); font-size: .82rem; color: var(--hc-muted); display: flex; flex-wrap: wrap; align-items: center; gap: 6px 18px; justify-content: space-between; }
+.hc-foot a { color: var(--hc-ink); }
+.hc-foot .hc-blackletter { font-size: 1.15rem; color: var(--hc-ink); }
+.hc-brand { display: inline-flex; align-items: center; gap: 10px; }
+.hc-seal { width: 34px; height: 48px; object-fit: cover; object-position: left center; flex: none; }
+.hc-visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* Narrow screens: each row becomes a card */
+@container (max-width: 620px) {
+  .hc-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  .hc-table, .hc-table tbody { display: block; background: none; }
+  .hc-table tr { display: grid; grid-template-columns: 1fr auto; margin-bottom: 8px; background: var(--hc-panel); border: 1px solid var(--hc-border); border-left: 4px solid var(--hc-line); border-radius: var(--hc-radius); }
+  .hc-table tr.hc-paper { border-left-color: var(--hc-red); }
+  .hc-table td { border: 0; padding: 4px 12px; }
+  .hc-c-time { grid-column: 1; padding-top: 10px !important; font-weight: 600; color: var(--hc-ink); width: auto; white-space: normal; }
+  .hc-c-floor { grid-column: 2; grid-row: 1; padding-top: 10px !important; width: auto; }
+  .hc-c-floor:not(:empty)::before { content: "Floor "; }
+  .hc-c-floor .hc-line { display: inline; }
+  .hc-c-floor .hc-line + .hc-line::before { content: " / "; }
+  .hc-c-event { grid-column: 1 / -1; }
+  .hc-c-room { grid-column: 1 / -1; width: auto; padding-bottom: 10px !important; }
+  .hc-c-room:empty { display: none; }
+  .hc-table tbody tr:hover td { background: none; }
+}
+@media print {
+  .hc-bar { display: none; }
+  .hc-table th { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .hc-table tr { break-inside: avoid; }
+}
+</style>
+
+<div class="hc" id="hc-convocation">
+  <div class="hc-masthead">
+    <img class="hc-logo" id="hc-logo" src="https://sricf.org/wp-content/uploads/2025/12/logo-2026v2.png" alt="The Societas Rosicruciana in Civitatibus Foederatis" width="774" height="207">
+  </div>
+  <header class="hc-hero">
+    <h1 class="hc-title hc-blackletter" id="hc-name"></h1>
+    <p class="hc-edition"><span id="hc-edition-text"></span><span class="hc-status" id="hc-status"></span></p>
+  </header>
+
+  <aside class="hc-notices" id="hc-notices" aria-label="Notices" hidden><ul></ul></aside>
+
+  <nav class="hc-bar" aria-label="Filter the schedule">
+    <div class="hc-chips" role="group" aria-label="Show">
+      <button type="button" class="hc-chip" data-kind="all" aria-pressed="true">All</button>
+      <button type="button" class="hc-chip" data-kind="paper" aria-pressed="false">Papers</button>
+      <button type="button" class="hc-chip" data-kind="meal" aria-pressed="false">Meals &amp; socials</button>
+      <button type="button" class="hc-chip" data-kind="business" aria-pressed="false">Meetings &amp; ceremonies</button>
+    </div>
+    <input class="hc-search" type="search" placeholder="Search a title, presenter, college or room" aria-label="Search the schedule">
+    <div class="hc-jump" id="hc-jump"></div>
+  </nav>
+
+  <div id="hc-days"></div>
+  <p class="hc-empty" id="hc-no-match" hidden>No sessions match. Try another word or show all.</p>
+
+  <footer class="hc-foot">
+    <span class="hc-brand"><img class="hc-seal" id="hc-seal" alt=""><span class="hc-blackletter" id="hc-short"></span></span>
+    <span id="hc-notice"></span>
+  </footer>
+</div>
+
+<script>
+(() => {
+  // Schedule content. To update, edit the files in data/ and run build.py.
+  const DATA = {"event": [{"name": "High Council Societas Rosicruciana in Civitatibus Foederatis", "short_name": "High Council SRICF", "edition": "2026 Convocation", "status": "Tentative schedule", "notice": "Times and rooms are tentative and may change before the Convocation.", "source_url": "https://sricf.org/wp-content/uploads/2026/09/2026-High-Counsel-Societas-Rosicruciana-In-Civitatbius-Foederatis.pdf", "site_url": "https://sricf.org/"}], "schedule": [{"id": "fri-01", "day": "2026-11-13", "time": "7:30 – 9:30 a.m.", "title": "Breakfast", "kind": "meal", "note": "", "presenters": "", "details": "", "room": "Bluegrass Room", "floor": "2"}, {"id": "fri-02", "day": "2026-11-13", "time": "9 – 10:30 a.m.", "title": "Chief Adepts Seminar", "kind": "business", "note": "Chief Adepts only", "presenters": "", "details": "", "room": "Citation A & B", "floor": ""}, {"id": "fri-03", "day": "2026-11-13", "time": "9 a.m. – Noon", "title": "MMS Training", "kind": "training", "note": "", "presenters": "", "details": "", "room": "Broadway B", "floor": ""}, {"id": "fri-04", "day": "2026-11-13", "time": "11 a.m.", "title": "Processional & Opening of the High Council", "kind": "ceremony", "note": "", "presenters": "", "details": "", "room": "Gallery Ballroom", "floor": "16"}, {"id": "fri-05", "day": "2026-11-13", "time": "12 – 1:30 p.m.", "title": "Lunch\nLadies Lunch", "kind": "meal", "note": "", "presenters": "", "details": "", "room": "Crystal Ballroom\nBluegrass Room", "floor": "3\n2"}, {"id": "fri-06", "day": "2026-11-13", "time": "1:30 – 4:30 p.m.", "title": "MMS Individual training sessions", "kind": "training", "note": "", "presenters": "", "details": "", "room": "Broadway B", "floor": ""}, {"id": "fri-07", "day": "2026-11-13", "time": "1:30 p.m.", "title": "Signs Prophecies, and the Tomb of Christian Rosenkreutz", "kind": "paper", "note": "", "presenters": "W. Fra. Billy Hamilton VII° (Texas College)", "details": "", "room": "Gallery Ballroom", "floor": "16"}, {"id": "fri-08", "day": "2026-11-13", "time": "2:35 p.m.", "title": "The Craft & Witchcraft: The Origin of Religious Antipathy to Freemasonry", "kind": "paper", "note": "", "presenters": "W. Fra. Alasdair Keith V° (Georgia College)", "details": "", "room": "Gallery Ballroom", "floor": "16"}, {"id": "fri-09", "day": "2026-11-13", "time": "3:45 p.m.", "title": "On the Path of Mithras", "kind": "paper", "note": "", "presenters": "R.W. Fra. Barry Newell IX° (Idaho College)", "details": "", "room": "Gallery Ballroom", "floor": "16"}, {"id": "fri-10", "day": "2026-11-13", "time": "4:45 p.m.", "title": "*Alchimia Acoustica*: Acoustic Alchemy – An Introduction to the Transformational Power of Sound and Vibration", "kind": "paper", "note": "", "presenters": "R.W. Fra. Myron Deputat IX° (New York College)", "details": "", "room": "Gallery Ballroom", "floor": "16"}, {"id": "fri-11", "day": "2026-11-13", "time": "5:30 p.m.", "title": "Cocktail Hour", "kind": "social", "note": "", "presenters": "", "details": "", "room": "Mezzanine", "floor": "3"}, {"id": "fri-12", "day": "2026-11-13", "time": "6:30 p.m.", "title": "Friday Evening Dinner", "kind": "meal", "note": "", "presenters": "", "details": "", "room": "Crystal Ballroom", "floor": "3"}, {"id": "fri-13", "day": "2026-11-13", "time": "8:30 p.m.", "title": "Elevations (VIII° and XI°)", "kind": "ceremony", "note": "Candidates, Magisters, and Magi only", "presenters": "", "details": "", "room": "Gallery Ballroom", "floor": "16"}, {"id": "fri-14", "day": "2026-11-13", "time": "8:30 – 11 p.m.", "title": "Hospitality Suites Open", "kind": "social", "note": "", "presenters": "", "details": "Florida College\nLouisiana College\nColorado College", "room": "Ste 1115–1117\nSte 1225–1229\nSte 915–917", "floor": ""}, {"id": "sat-01", "day": "2026-11-14", "time": "7:30 – 9:30 a.m.", "title": "Breakfast Buffet", "kind": "meal", "note": "", "presenters": "", "details": "", "room": "Crystal Ballroom", "floor": "3"}, {"id": "sat-02", "day": "2026-11-14", "time": "9 – 9:30 a.m.", "title": "Business Meeting & Reports", "kind": "business", "note": "", "presenters": "", "details": "Presentation of Charters\nInstallation of Chief Adepts", "room": "Gallery Ballroom", "floor": "3"}, {"id": "sat-03", "day": "2026-11-14", "time": "9:45 a.m.", "title": "From *Nous* to *Logos*: The Reception of Neoplatonism into Christian Thought", "kind": "paper", "note": "", "presenters": "R.W. Fra. S. Dirk Wiker IX° (Maryland College)\nW. Fra. Jacob Trayer VII° (Arizona College)", "details": "", "room": "Gallery Ballroom", "floor": "16"}, {"id": "sat-04", "day": "2026-11-14", "time": "10:50 a.m.", "title": "How Did Rosicrucianism Influence English Freemasonry?", "kind": "paper", "note": "", "presenters": "R.W. Fra. Derek Bain IX° (SRIA)", "details": "", "room": "Gallery Ballroom", "floor": "16"}, {"id": "sat-05", "day": "2026-11-14", "time": "11:50 a.m.", "title": "Announcements", "kind": "business", "note": "", "presenters": "", "details": "", "room": "Gallery Ballroom", "floor": "16"}, {"id": "sat-06", "day": "2026-11-14", "time": "Noon", "title": "Lunch", "kind": "meal", "note": "", "presenters": "", "details": "", "room": "Crystal Ballroom", "floor": "3"}, {"id": "sat-07", "day": "2026-11-14", "time": "1:30 p.m.", "title": "Houses in the Lodge", "kind": "paper", "note": "", "presenters": "R.W. Fra. Kirk White IX° (Vermont College)", "details": "", "room": "Gallery Ballroom", "floor": "16"}, {"id": "sat-08", "day": "2026-11-14", "time": "2:35 p.m.", "title": "Writing and Presenting a Paper for Your College: Some Practical Tips", "kind": "paper", "note": "", "presenters": "W. Fra. John Daniel Honey II° (Louisiana College)", "details": "", "room": "Gallery Ballroom", "floor": "16"}, {"id": "sat-09", "day": "2026-11-14", "time": "3:50 p.m.", "title": "Remarks by Visiting Supreme Magi", "kind": "business", "note": "", "presenters": "", "details": "", "room": "Gallery Ballroom", "floor": "16"}, {"id": "sat-10", "day": "2026-11-14", "time": "4:40 p.m.", "title": "Discussion on Convocation and Announcements", "kind": "business", "note": "", "presenters": "", "details": "", "room": "Gallery Ballroom", "floor": "16"}, {"id": "sat-11", "day": "2026-11-14", "time": "4:55 p.m.", "title": "Closing of Annual Convocation", "kind": "ceremony", "note": "", "presenters": "", "details": "", "room": "Gallery Ballroom", "floor": "16"}, {"id": "sat-12", "day": "2026-11-14", "time": "5 p.m.", "title": "Hospitality Suites Open", "kind": "social", "note": "", "presenters": "", "details": "Florida College\nLouisiana College\nColorado College", "room": "Ste 1115–1117\nSte 1225–1229\nSte 915–917", "floor": ""}, {"id": "sat-13", "day": "2026-11-14", "time": "6 p.m.", "title": "Cocktail Hour", "kind": "social", "note": "", "presenters": "", "details": "", "room": "Mezzanine", "floor": "3"}, {"id": "sat-14", "day": "2026-11-14", "time": "7 p.m.", "title": "Banquet", "kind": "meal", "note": "", "presenters": "", "details": "", "room": "Crystal Ballroom", "floor": "3"}, {"id": "sat-15", "day": "2026-11-14", "time": "9 p.m.", "title": "Hospitality Suites Open", "kind": "social", "note": "", "presenters": "", "details": "Florida College\nLouisiana College\nColorado College", "room": "Ste 1115–1117\nSte 1225–1229\nSte 915–917", "floor": ""}], "notices": [{"id": "keycard", "title": "12th Floor key card", "text": "You will need a 12th Floor key card from the hotel front desk to reach the 12th Floor hospitality rooms."}, {"id": "partners", "title": "Ladies/Partners Hospitality", "text": "Suite 1215–1217. Hours to be announced."}]};
+
+  const root = document.getElementById('hc-convocation');
+  const $ = (sel) => root.querySelector(sel);
+  const ev = DATA.event[0] || {};
+  const rows = DATA.schedule;
+  const groups = { paper: ['paper'], meal: ['meal', 'social'], business: ['business', 'ceremony', 'training'] };
+  const state = { kind: 'all', q: '' };
+
+  $('#hc-name').textContent = ev.name || '';
+  $('#hc-edition-text').textContent = ev.edition || '';
+  $('#hc-status').textContent = ev.status || '';
+  $('#hc-short').textContent = ev.short_name || '';
+  $('#hc-notice').textContent = ev.notice || '';
+  // The footer seal reuses the header logo, cropped to its emblem in CSS.
+  $('#hc-seal').src = $('#hc-logo').src;
+
+  const notes = DATA.notices || [];
+  $('#hc-notices').hidden = notes.length === 0;
+  $('#hc-notices ul').replaceChildren(...notes.map((n) => {
+    const li = document.createElement('li');
+    if (n.title) { const b = document.createElement('b'); b.textContent = n.title; li.append(b); }
+    li.append(document.createTextNode(n.text || ''));
+    return li;
+  }));
+
+  const dayInfo = (day) => {
+    const d = new Date(day + 'T12:00:00Z');
+    return {
+      day,
+      label: d.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC' }),
+      short: d.toLocaleDateString('en-US', { weekday: 'long', timeZone: 'UTC' }),
+    };
+  };
+  const days = [...new Set(rows.map((r) => r.day))].sort().map(dayInfo);
+
+  const lines = (v) => String(v ?? '').split('\n').filter((s) => s.trim() !== '');
+  // Text with *word* shown in italics, built from text nodes only.
+  const rich = (el, text) => {
+    String(text).split(/(\*[^*]+\*)/).forEach((part) => {
+      if (/^\*[^*]+\*$/.test(part)) { const em = document.createElement('em'); em.textContent = part.slice(1, -1); el.append(em); }
+      else if (part) el.append(document.createTextNode(part));
+    });
+  };
+  const div = (cls, text) => { const el = document.createElement('div'); el.className = cls; if (text != null) el.textContent = text; return el; };
+  const span = (text) => { const s = document.createElement('span'); s.className = 'hc-line'; s.textContent = text; return s; };
+  const matches = (r) => {
+    if (state.kind !== 'all' && !groups[state.kind].includes(r.kind)) return false;
+    if (!state.q) return true;
+    const hay = [r.title, r.presenters, r.details, r.note, r.room, r.time].join(' ').replace(/\*/g, '').toLowerCase();
+    return state.q.split(/\s+/).every((w) => hay.includes(w));
+  };
+
+  const row = (r) => {
+    const tr = document.createElement('tr');
+    if (r.kind === 'paper') tr.className = 'hc-paper';
+    const suites = r.details && r.kind === 'social';
+
+    const time = document.createElement('td'); time.className = 'hc-c-time'; time.textContent = r.time;
+
+    const evCell = document.createElement('td'); evCell.className = 'hc-c-event';
+    lines(r.title).forEach((t, i) => {
+      const d = div('hc-t'); rich(d, t);
+      if (i === 0 && r.kind === 'paper') { const tag = document.createElement('span'); tag.className = 'hc-tag'; tag.textContent = 'Paper'; d.append(tag); }
+      evCell.append(d);
+    });
+    if (r.details && !suites) lines(r.details).forEach((t) => evCell.append(div('hc-sub', t)));
+    if (suites) {
+      const ul = document.createElement('ul'); ul.className = 'hc-list';
+      const rooms = lines(r.room);
+      lines(r.details).forEach((t, i) => { const li = document.createElement('li'); li.textContent = rooms[i] ? `${t} · ${rooms[i]}` : t; ul.append(li); });
+      evCell.append(ul);
+    }
+    if (r.presenters) { const w = div('hc-who'); lines(r.presenters).forEach((p) => w.append(span(p))); evCell.append(w); }
+    if (r.note) evCell.append(div('hc-pill', r.note));
+
+    const room = document.createElement('td'); room.className = 'hc-c-room';
+    if (!suites) lines(r.room).forEach((t) => room.append(span(t)));
+    const floor = document.createElement('td'); floor.className = 'hc-c-floor';
+    lines(r.floor).forEach((t) => floor.append(span(t)));
+
+    tr.append(time, evCell, room, floor);
+    return tr;
+  };
+
+  const head = () => {
+    const thead = document.createElement('thead'); const tr = document.createElement('tr');
+    [['Time', 'hc-c-time'], ['Session', ''], ['Room', 'hc-c-room'], ['Flr', 'hc-c-floor']].forEach(([label, cls]) => {
+      const th = document.createElement('th'); th.scope = 'col'; th.textContent = label; if (cls) th.className = cls; tr.append(th);
+    });
+    thead.append(tr); return thead;
+  };
+
+  const draw = () => {
+    let shown = 0;
+    $('#hc-days').replaceChildren(...days.map((d) => {
+      const sec = document.createElement('section'); sec.className = 'hc-day'; sec.id = 'hc-day-' + d.short.toLowerCase();
+      const h = document.createElement('h2'); h.textContent = d.label;
+      const table = document.createElement('table'); table.className = 'hc-table';
+      const cap = document.createElement('caption'); cap.className = 'hc-visually-hidden'; cap.textContent = d.label + ' schedule';
+      const tb = document.createElement('tbody');
+      rows.filter((r) => r.day === d.day && matches(r)).forEach((r) => tb.append(row(r)));
+      shown += tb.children.length;
+      table.append(cap, head(), tb);
+      sec.append(h, table);
+      sec.hidden = tb.children.length === 0;
+      return sec;
+    }));
+    $('#hc-no-match').hidden = shown > 0;
+  };
+
+  $('#hc-jump').replaceChildren(...days.map((d) => {
+    const a = document.createElement('a'); a.href = '#hc-day-' + d.short.toLowerCase(); a.textContent = d.short; return a;
+  }));
+  const chips = [...root.querySelectorAll('.hc-chip')];
+  chips.forEach((c) => c.addEventListener('click', () => {
+    state.kind = c.dataset.kind;
+    chips.forEach((x) => x.setAttribute('aria-pressed', String(x === c)));
+    draw();
+  }));
+  $('.hc-search').addEventListener('input', (e) => { state.q = e.target.value.trim().toLowerCase(); draw(); });
+
+  draw();
+})();
+</script>
+
+</body>
+</html>
