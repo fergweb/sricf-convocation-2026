@@ -45,8 +45,9 @@ It keeps updating on its own, because it always shows the live GitHub page.
 5. **Publish**, then open the page in a private/incognito window to check it.
 6. Add the page to the site menu (**Appearance → Menus**) or link it from the Convocation page.
 
-The embedded copy hides its own logo, since the site header already shows it, and sizes
-itself to fit, so there is no inner scrollbar.
+The embedded copy sizes itself to fit, so there is no inner scrollbar, and its Friday/Saturday
+links scroll the sricf.org page itself, stopping just below Avada's sticky header.
+If you ever change the paste-in code, re-paste the whole of `avada-embed-code.html`.
 
 ## Optional: a sricf.org address (e.g. schedule.sricf.org)
 
