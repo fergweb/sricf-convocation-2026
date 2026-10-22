@@ -87,10 +87,8 @@
 .hc-foot .hc-blackletter { font-size: 1.15rem; color: var(--hc-ink); }
 .hc-brand { display: inline-flex; align-items: center; gap: 10px; }
 .hc-seal { width: 34px; height: 48px; object-fit: cover; object-position: left center; flex: none; }
-/* Shown inside a page on sricf.org, which already has the logo in its header */
+/* Shown inside a page on sricf.org */
 .hc-embedded { padding-bottom: 8px; }
-.hc-embedded .hc-masthead { display: none; }
-.hc-embedded .hc-hero { padding-top: 0; }
 .hc-visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
 /* Narrow screens: each row becomes a card */
@@ -287,6 +285,16 @@
     new ResizeObserver(report).observe(root);
     window.addEventListener('load', report);
     report();
+
+    // The frame has no scrollbar of its own, so the Friday/Saturday links ask
+    // the sricf.org page to scroll to that day instead.
+    $('#hc-jump').addEventListener('click', (e) => {
+      const a = e.target.closest('a[href^="#"]');
+      const target = a && document.getElementById(a.hash.slice(1));
+      if (!target) return;
+      e.preventDefault();
+      window.parent.postMessage({ type: 'sricf-schedule-scroll', top: Math.round(target.getBoundingClientRect().top + window.scrollY) }, '*');
+    });
   }
 })();
 </script>
