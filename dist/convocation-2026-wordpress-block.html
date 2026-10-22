@@ -30,10 +30,9 @@
 .hc-masthead { display: flex; justify-content: center; padding: 10px 0 0; }
 .hc-logo { display: block; width: min(100%, 520px); height: auto; }
 
-/* Title block, laid out as on the PDF */
+/* Title line under the logo */
 .hc-hero { text-align: center; padding: 8px 0 0; }
-.hc-title { margin: 0; padding: 0; font-size: clamp(1.5rem, 4.4cqi, 2.3rem); line-height: 1.15; color: var(--hc-ink); text-wrap: balance; border: 0; }
-.hc-edition { margin: 2px 0 0; font-size: 1.15rem; font-weight: 700; color: var(--hc-fg); }
+.hc-edition { margin: 0; padding: 0; font-family: inherit; font-size: 1.3rem; line-height: 1.3; font-weight: 700; color: var(--hc-fg); text-transform: none; letter-spacing: 0; border: 0; }
 .hc-status { font-size: .8rem; font-weight: 700; color: var(--hc-muted); margin-left: 8px; }
 .hc-status::before { content: "· "; }
 
@@ -52,14 +51,14 @@
 }
 .hc-chip:hover { border-color: var(--hc-red); }
 .hc-chip[aria-pressed="true"] { background: var(--hc-red); border-color: var(--hc-red); color: #fff; }
-.hc-chip:focus-visible, .hc-search:focus-visible, .hc-jump a:focus-visible { outline: 2px solid var(--hc-gold); outline-offset: 2px; }
+.hc-chip:focus-visible, .hc-search:focus-visible, .hc-jump button:focus-visible { outline: 2px solid var(--hc-gold); outline-offset: 2px; }
 .hc-search {
   flex: 1 1 12rem; min-width: 0; margin: 0; font: inherit; font-size: .95rem; padding: 7px 12px; height: auto;
   border: 1px solid var(--hc-border); border-radius: var(--hc-radius); background: var(--hc-panel); color: var(--hc-fg);
 }
 .hc-jump { display: flex; gap: 12px; font-size: .85rem; }
-.hc-jump a { color: var(--hc-ink); text-decoration: none; font-weight: 600; }
-.hc-jump a:hover { text-decoration: underline; }
+.hc-jump button { font: inherit; font-weight: 600; color: var(--hc-ink); background: none; border: 0; padding: 0; margin: 0; cursor: pointer; text-transform: none; letter-spacing: 0; box-shadow: none; }
+.hc-jump button:hover { text-decoration: underline; }
 
 /* Day sections and table */
 .hc-day { margin-top: 28px; scroll-margin-top: 90px; }
@@ -120,8 +119,7 @@
     <img class="hc-logo" id="hc-logo" src="https://sricf.org/wp-content/uploads/2025/12/logo-2026v2.png" alt="The Societas Rosicruciana in Civitatibus Foederatis" width="774" height="207">
   </div>
   <header class="hc-hero">
-    <h1 class="hc-title hc-blackletter" id="hc-name"></h1>
-    <p class="hc-edition"><span id="hc-edition-text"></span><span class="hc-status" id="hc-status"></span></p>
+    <h1 class="hc-edition"><span id="hc-edition-text"></span><span class="hc-status" id="hc-status"></span></h1>
   </header>
 
   <aside class="hc-notices" id="hc-notices" aria-label="Notices" hidden><ul></ul></aside>
@@ -158,7 +156,6 @@
   const groups = { paper: ['paper'], meal: ['meal', 'social'], business: ['business', 'ceremony', 'training'] };
   const state = { kind: 'all', q: '' };
 
-  $('#hc-name').textContent = ev.name || '';
   $('#hc-edition-text').textContent = ev.edition || '';
   $('#hc-status').textContent = ev.status || '';
   $('#hc-short').textContent = ev.short_name || '';
@@ -260,8 +257,19 @@
     $('#hc-no-match').hidden = shown > 0;
   };
 
+  const embedded = window.self !== window.top;
+  // Buttons rather than links, so hovering never shows a github.io address.
   $('#hc-jump').replaceChildren(...days.map((d) => {
-    const a = document.createElement('a'); a.href = '#hc-day-' + d.short.toLowerCase(); a.textContent = d.short; return a;
+    const b = document.createElement('button'); b.type = 'button'; b.textContent = d.short;
+    b.addEventListener('click', () => {
+      const target = document.getElementById('hc-day-' + d.short.toLowerCase());
+      if (!target) return;
+      // Inside sricf.org the frame has no scrollbar of its own, so ask the
+      // sricf.org page to scroll to that day instead.
+      if (embedded) window.parent.postMessage({ type: 'sricf-schedule-scroll', top: Math.round(target.getBoundingClientRect().top + window.scrollY) }, '*');
+      else target.scrollIntoView({ behavior: 'smooth' });
+    });
+    return b;
   }));
   const chips = [...root.querySelectorAll('.hc-chip')];
   chips.forEach((c) => c.addEventListener('click', () => {
@@ -275,7 +283,7 @@
 
   // When sricf.org shows this page inside its own page, tell it how tall the
   // schedule is so it can size the frame with no inner scrollbar.
-  if (window.self !== window.top) {
+  if (embedded) {
     root.classList.add('hc-embedded');
     let last = 0;
     const report = () => {
@@ -285,16 +293,6 @@
     new ResizeObserver(report).observe(root);
     window.addEventListener('load', report);
     report();
-
-    // The frame has no scrollbar of its own, so the Friday/Saturday links ask
-    // the sricf.org page to scroll to that day instead.
-    $('#hc-jump').addEventListener('click', (e) => {
-      const a = e.target.closest('a[href^="#"]');
-      const target = a && document.getElementById(a.hash.slice(1));
-      if (!target) return;
-      e.preventDefault();
-      window.parent.postMessage({ type: 'sricf-schedule-scroll', top: Math.round(target.getBoundingClientRect().top + window.scrollY) }, '*');
-    });
   }
 })();
 </script>
