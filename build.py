@@ -24,7 +24,7 @@ page = f"""<!doctype html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{event['edition']} Schedule · {event['short_name']}</title>
 <meta name="description" content="{event['status']} for the {event['name']} {event['edition']}.">
-<style>body {{ margin: 0; background: #ffffff; }}</style>
+<style>body {{ margin: 0; background: transparent; }}</style>
 </head>
 <body>
 {fragment}

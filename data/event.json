@@ -1,1 +1,21 @@
-[{"name":"High Council Societas Rosicruciana in Civitatibus Foederatis","short_name":"High Council SRICF","edition":"2026 Convocation","status":"Tentative schedule","notice":"Times and rooms are tentative and may change before the Convocation.","source_url":"https://sricf.org/wp-content/uploads/2026/09/2026-High-Counsel-Societas-Rosicruciana-In-Civitatbius-Foederatis.pdf","site_url":"https://sricf.org/"}]
+[
+ {
+  "name": "High Council Societas Rosicruciana in Civitatibus Foederatis",
+  "short_name": "High Council SRICF",
+  "edition": "2026 Convocation",
+  "status": "Tentative schedule",
+  "notice": "Times and rooms are tentative and may change before the Convocation.",
+  "source_url": "https://sricf.org/wp-content/uploads/2026/09/2026-High-Counsel-Societas-Rosicruciana-In-Civitatbius-Foederatis.pdf",
+  "site_url": "https://sricf.org/",
+  "links": [
+   {
+    "label": "Speaker Info",
+    "url": "https://sricf.org/2026-convocation-schedule-and-speaker-info/"
+   },
+   {
+    "label": "Event Registration",
+    "url": "https://sricf.org/event-registration/"
+   }
+  ]
+ }
+]

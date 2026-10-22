@@ -6,7 +6,7 @@
   --hc-ink: #a01a27;
   --hc-fg: #212326;
   --hc-muted: #555a61;
-  --hc-bg: #ffffff;
+  --hc-bg: transparent; /* lets the sricf.org page background show through */
   --hc-panel: #ffffff;
   --hc-line: #8a8d92;
   --hc-border: #dcdde0;
@@ -29,6 +29,12 @@
 /* Letterhead */
 .hc-masthead { display: flex; justify-content: center; padding: 10px 0 0; }
 .hc-logo { display: block; width: min(100%, 520px); height: auto; }
+.hc-masthead a { display: block; width: min(100%, 520px); }
+.hc-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 20px; margin: 6px 0 0; font-size: .95rem; font-weight: 600; }
+.hc-links[hidden] { display: none; }
+.hc-links a { color: var(--hc-ink); text-decoration: none; }
+.hc-links a:hover { text-decoration: underline; }
+.hc-links a:focus-visible, .hc-masthead a:focus-visible { outline: 2px solid var(--hc-gold); outline-offset: 2px; }
 
 /* Title line under the logo */
 .hc-hero { text-align: center; padding: 8px 0 0; }
@@ -116,10 +122,11 @@
 
 <div class="hc" id="hc-convocation">
   <div class="hc-masthead">
-    <img class="hc-logo" id="hc-logo" src="https://sricf.org/wp-content/uploads/2025/12/logo-2026v2.png" alt="The Societas Rosicruciana in Civitatibus Foederatis" width="774" height="207">
+    <a id="hc-home" href="https://sricf.org/" target="_top"><img class="hc-logo" id="hc-logo" src="https://sricf.org/wp-content/uploads/2025/12/logo-2026v2.png" alt="The Societas Rosicruciana in Civitatibus Foederatis, home page" width="774" height="207"></a>
   </div>
   <header class="hc-hero">
     <h1 class="hc-edition"><span id="hc-edition-text"></span><span class="hc-status" id="hc-status"></span></h1>
+    <nav class="hc-links" id="hc-links" aria-label="Convocation pages"></nav>
   </header>
 
   <aside class="hc-notices" id="hc-notices" aria-label="Notices" hidden><ul></ul></aside>
@@ -160,6 +167,13 @@
   $('#hc-status').textContent = ev.status || '';
   $('#hc-short').textContent = ev.short_name || '';
   $('#hc-notice').textContent = ev.notice || '';
+  // Links open in the whole browser window, not inside the sricf.org frame.
+  const safeUrl = (u) => /^https:\/\//.test(u || '') ? u : null;
+  if (safeUrl(ev.site_url)) $('#hc-home').href = ev.site_url;
+  $('#hc-links').replaceChildren(...(ev.links || []).filter((l) => safeUrl(l.url)).map((l) => {
+    const a = document.createElement('a'); a.href = l.url; a.target = '_top'; a.textContent = l.label; return a;
+  }));
+  $('#hc-links').hidden = !(ev.links || []).length;
   // The footer seal reuses the header logo, cropped to its emblem in CSS.
   $('#hc-seal').src = $('#hc-logo').src;
 
