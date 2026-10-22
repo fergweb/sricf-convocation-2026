@@ -16,6 +16,34 @@
     "label": "Event Registration",
     "url": "https://sricf.org/event-registration/"
    }
-  ]
+  ],
+  "seo": {
+   "page_url": "https://sricf.org/2026-schedule/",
+   "title": "2026 Convocation Schedule | High Council SRICF",
+   "description": "Tentative schedule for the SRICF High Council 2026 Convocation, Nov. 13–14 in Louisville, KY: papers and presenters, meals, rooms and hospitality suites.",
+   "event_name": "High Council SRICF 2026 Convocation",
+   "event_description": "The annual Convocation of the High Council of the Societas Rosicruciana in Civitatibus Foederatis, with papers on Rosicrucian, Masonic and esoteric history, business meetings, Elevations, meals and a closing banquet.",
+   "image": "https://sricf.org/wp-content/uploads/2025/12/logo-2026v2.png",
+   "venue": {
+    "name": "",
+    "street": "",
+    "city": "Louisville",
+    "region": "KY",
+    "postal_code": "",
+    "country": "US"
+   },
+   "registration_url": "https://sricf.org/event-registration/",
+   "price_low": "9.50",
+   "price_high": "200.00",
+   "organizer": {
+    "name": "Societas Rosicruciana in Civitatibus Foederatis",
+    "url": "https://sricf.org/",
+    "street": "P.O. Box 13613",
+    "city": "Grand Forks",
+    "region": "ND",
+    "postal_code": "58208-3613",
+    "country": "US"
+   }
+  }
  }
 ]
