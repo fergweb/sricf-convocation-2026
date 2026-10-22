@@ -1,7 +1,20 @@
 # High Council SRICF — 2026 Convocation schedule page
 
-A public schedule page for sricf.org, built from the High Council's tentative-schedule PDF
-(Sept 2026) plus later updates. It needs no login and runs in any browser.
+A public schedule page for the 2026 High Council Convocation, built from the High Council's
+tentative-schedule PDF (Sept 2026) plus later updates. No login needed, works in any browser.
+
+**Live page:** https://fergweb.github.io/sricf-convocation-2026/
+(GitHub Pages, published from the `docs/` folder of the `main` branch)
+
+## How updates go live
+
+1. Tell Claude the changes (e.g. "Saturday banquet moves to 7:30").
+2. Claude edits the files in `data/`, runs `python3 build.py`, commits and pushes.
+3. GitHub republishes the page by itself, usually within a minute.
+
+Nothing to upload. The Claude-hosted copy
+(https://claude.ai/artifact/6f1hq5V2TgBX5EJXzXsAVJ) is kept in sync too, but it needs a
+Claude login to view, so the GitHub page is the public one.
 
 ## What's here
 
@@ -11,41 +24,21 @@ A public schedule page for sricf.org, built from the High Council's tentative-sc
 | `data/notices.json` | The notices box (key card, Ladies/Partners suite) |
 | `data/event.json` | Name, "2026 Convocation", "Tentative schedule", footer line |
 | `template.html` | The page's design and code (no schedule text in it) |
-| `build.py` | Combines the above into the two finished files |
-| `dist/convocation-2026-wordpress-block.html` | **Paste into WordPress** (Custom HTML block) |
-| `dist/convocation-2026.html` | A complete standalone page, if you'd rather upload a file |
-
-## Putting it on sricf.org (first time)
-
-1. In WordPress, add a new page, e.g. **2026 Convocation Schedule**, slug `convocation-2026`.
-2. Add a **Custom HTML** block. Open `dist/convocation-2026-wordpress-block.html`,
-   copy everything, paste it into the block.
-3. In the page's Avada options, hide the page title bar (the schedule has its own title)
-   and pick a full-width or 100%-width layout if the content area feels narrow.
-4. Publish, then open the page in a private/incognito window to confirm it shows without logging in.
-
-You must be a WordPress administrator to save a block that contains a script.
-
-## Updating it later
-
-Tell Claude the changes (e.g. "Saturday banquet moves to 7:30"). Claude edits the files
-in `data/`, runs `python3 build.py`, and also updates the Claude-hosted copy.
-Then you replace the Custom HTML block's contents with the new
-`dist/convocation-2026-wordpress-block.html` and click **Update**.
-
-To edit by hand: change the text in `data/schedule.json` (keep the quotes and commas),
-then run:
-
-```bash
-python3 build.py
-```
+| `build.py` | Combines the above into the finished page |
+| `docs/index.html` | The live page (made by `build.py`; don't edit by hand) |
+| `dist/` | The same page as a standalone file and as a WordPress Custom HTML block |
 
 Notes on the data:
 - A line break inside a cell is written `\n` (e.g. `"Lunch\nLadies Lunch"`).
 - `*word*` in a title shows in italics.
 - `kind` controls the filter buttons: `paper`, `meal`, `social`, `business`, `ceremony`, `training`.
 
-## Claude-hosted copy
+## Optional: a sricf.org address (e.g. schedule.sricf.org)
 
-https://claude.ai/artifact/6f1hq5V2TgBX5EJXzXsAVJ — kept in sync, but visitors must be
-signed in to Claude to view it, so the sricf.org page is the public one.
+1. Where sricf.org's DNS is managed (the domain registrar or web host), add a record:
+   - Type **CNAME**, Name/Host **schedule**, Value/Target **fergweb.github.io**
+2. Tell Claude it's done. Claude sets the custom domain on GitHub Pages and turns on HTTPS
+   (GitHub issues the certificate itself; it can take up to an hour).
+3. Link to it from the sricf.org menu.
+
+Until then, link to the github.io address above from sricf.org.
